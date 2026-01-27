@@ -15,3 +15,16 @@ Bronze (raw files) → PySpark (clean) → Snowflake Silver (MERGE) → Gold ana
 - Idempotent pipeline design
 - Data quality validation
 - Orchestration with retries and backfills
+
+### Step 2 Completed: Snowflake Foundation (DB + Schemas + Warehouse + Tables)
+
+Implemented a cost-safe Snowflake setup to support the medallion architecture:
+
+- Database: NYC_TAXI
+- Schemas: BRONZE, SILVER, GOLD
+- Compute warehouse: WH_NYC_TAXI (XSMALL, AUTO_SUSPEND=60s, AUTO_RESUME=TRUE, INITIALLY_SUSPENDED=TRUE)
+- Core tables created:
+  - NYC_TAXI.SILVER.TAXI_TRIPS_CLEAN (cleaned trip-level fact table for incremental MERGE)
+  - NYC_TAXI.GOLD.DAILY_METRICS (daily aggregation table for reporting)
+
+Setup SQL is saved in: sql/snowflake_setup.sql
