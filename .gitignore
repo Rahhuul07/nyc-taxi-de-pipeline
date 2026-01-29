@@ -11,3 +11,17 @@ spark_error.txt
 .venv/
 __pycache__/
 *.pyc
+
+# Data outputs
+data/
+*.parquet
+*.crc
+
+# Logs / debug
+spark_error.txt
+*.log
+
+# Python
+.venv/
+__pycache__/
+*.pyc
